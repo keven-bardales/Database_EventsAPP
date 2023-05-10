@@ -75,9 +75,7 @@ Stores the email addresses of organizers.
 | email | VARCHAR(100) | UNIQUE | Email address of the organizer |
 | id_organizer | INT | NOT NULL | Foreign key referencing the organizer |
 
-Sure, here's the rest of the documentation in Markdown format:
 
----
 
 ### `tbl_organizer_phones` table
 
