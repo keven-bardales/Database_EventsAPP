@@ -75,12 +75,46 @@ Stores the email addresses of organizers.
 | email | VARCHAR(100) | UNIQUE | Email address of the organizer |
 | id_organizer | INT | NOT NULL | Foreign key referencing the organizer |
 
-### tbl_organizer_phones
+Sure, here's the rest of the documentation in Markdown format:
 
-Stores the phone numbers of organizers.
+---
 
-| Column Name | Data Type | Constraints | Description |
-|-------------|----------|-------------|-------------|
-| id | INT | PRIMARY KEY, AUTO_INCREMENT | Unique identifier for the phone number |
-| phone | VARCHAR(15) | | Phone number of the organizer |
-| id_organizer | INT | NOT NULL |
+### `tbl_organizer_phones` table
+
+This table stores phone numbers for organizers.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| `id` | INT | Primary key auto-increment ID |
+| `phone` | VARCHAR(15) | Phone number |
+| `id_organizer` | INT | Foreign key referencing `tbl_organizers(id)` |
+
+### `tbl_users` table
+
+This table stores user accounts for the system.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| `id` | INT | Primary key auto-increment ID |
+| `name` | VARCHAR(100) | User's name |
+| `email` | VARCHAR(100) | User's email address |
+| `password` | VARCHAR(255) | User's password, hashed for security |
+| `created_at` | TIMESTAMP | Timestamp of when the user account was created |
+
+### `tbl_event_users` table
+
+This table stores the relationship between events and users who have confirmed their attendance.
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| `id_event` | INT | Foreign key referencing `tbl_events(id)` |
+| `id_user` | INT | Foreign key referencing `tbl_users(id)` |
+| `confirmed` | TINYINT | Flag indicating if the user has confirmed their attendance (0 for no, 1 for yes) |
+
+### Entity-Relationship Diagram
+
+ [![model.png](https://i.postimg.cc/HL19Sh7s/model.png)](https://postimg.cc/xXgm8gRW)
+
+---
+
+This concludes the documentation for the database schema. For more information on how to use the database, please refer to the documentation for your specific database management system.
